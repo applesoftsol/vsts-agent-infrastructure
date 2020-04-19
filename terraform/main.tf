@@ -61,8 +61,8 @@ resource "azurerm_container_group" "aci-vsts" {
       storage_account_name = "azurerm_storage_account.aci-sa.name"
       storage_account_key  = "azurerm_storage_account.aci-sa.primary_access_key"
     }
+  
   }
-
   tags {
     environment = "testing"
   }
