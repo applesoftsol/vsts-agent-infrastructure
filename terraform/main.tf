@@ -23,9 +23,7 @@ resource "azurerm_storage_account" "aci-sa" {
 
 resource "azurerm_storage_share" "aci-share" {
   name                 = "aci-vsts-share"
-  resource_group_name  = "azurerm_resource_group.aci-rg.name"
   storage_account_name = "azurerm_storage_account.aci-sa.name"
-
   quota = 50
 }
 
@@ -41,8 +39,12 @@ resource "azurerm_container_group" "aci-vsts" {
     image  = "lenisha/vsts-agent-infrastructure"
     cpu    = "0.5"
     memory = "1.5"
-    port   = "80"
-
+    ports {
+      port     = 80
+      protocol = "TCP"
+    }
+  }
+  
     environment_variables {
       VSTS_ACCOUNT = "var.vsts-account"
       VSTS_TOKEN   = "var.vsts-token"
