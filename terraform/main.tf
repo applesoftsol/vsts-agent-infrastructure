@@ -3,7 +3,7 @@ provider "azurerm" {
 }
 resource "azurerm_resource_group" "aci-rg" {
   name     = "aci-vsts"
-  location = "westus2"
+  location = "west us"
 }
 
 resource "random_id" "randomId" {
