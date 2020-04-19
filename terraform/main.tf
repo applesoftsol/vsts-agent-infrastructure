@@ -46,16 +46,13 @@ resource "azurerm_container_group" "aci-vsts" {
       port     = 80
       protocol = "TCP"
     }
-  }
-  
-    environment_variables {
+    environment_variables = {
       VSTS_ACCOUNT = "var.vsts-account"
       VSTS_TOKEN   = "var.vsts-token"
       VSTS_AGENT   = "var.vsts-agent"
-      VSTS_POOL    = "var.vsts-pool"
+      VSTS_POOL  = "var.vsts-pool"
     }
-
-    volume {
+  volume {
       name       = "logs"
       mount_path = "/aci/logs"
       read_only  = false
@@ -64,9 +61,7 @@ resource "azurerm_container_group" "aci-vsts" {
       storage_account_name = "azurerm_storage_account.aci-sa.name"
       storage_account_key  = "azurerm_storage_account.aci-sa.primary_access_key"
     }
-  
   }
-  tags {
-    environment = "testing"
-  }
+
 }
+ 
