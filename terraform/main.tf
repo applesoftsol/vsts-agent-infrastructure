@@ -1,3 +1,6 @@
+provider "azurerm" {
+  features {}
+}
 resource "azurerm_resource_group" "aci-rg" {
   name     = "aci-vsts"
   location = "westus2"
