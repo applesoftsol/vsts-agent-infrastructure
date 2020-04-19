@@ -44,10 +44,10 @@ resource "azurerm_container_group" "aci-vsts" {
     port   = "80"
 
     environment_variables {
-      "VSTS_ACCOUNT" = "var.vsts-account"
-      "VSTS_TOKEN"   = "var.vsts-token"
-      "VSTS_AGENT"   = "var.vsts-agent"
-      "VSTS_POOL"    = "var.vsts-pool"
+      VSTS_ACCOUNT = "var.vsts-account"
+      VSTS_TOKEN   = "var.vsts-token"
+      VSTS_AGENT   = "var.vsts-agent"
+      VSTS_POOL    = "var.vsts-pool"
     }
 
     volume {
